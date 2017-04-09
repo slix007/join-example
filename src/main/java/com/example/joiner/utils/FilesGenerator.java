@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * It's used to generate input files.
+ *
  * Created by Sergey Shurmin on 4/8/17.
  */
 public class FilesGenerator {

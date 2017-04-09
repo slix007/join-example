@@ -16,14 +16,6 @@ public class SortedJoin implements Join {
         return checkSortedJoin(leftTable, rightTable, leftColumn, rightCoumn);
     }
 
-    /**
-     * <p>input columns:</p>
-     * ID;Name;GuessPeopleCount<br>
-     * ID;Name;Sex;PeoplesCount;WhenPeoplesCount;Source<br>
-     *
-     * <p>output columns:</p>
-     * ID;Name;GuessPeopleCount;ID;Name;Sex;PeoplesCount;WhenPeoplesCount;Source
-     */
     private List<String> checkSortedJoin(List<String> leftTable, List<String> sortedRightTable,
                                          Integer leftColumn, Integer rightCoumn) {
         // each loop increase the iterations counter
