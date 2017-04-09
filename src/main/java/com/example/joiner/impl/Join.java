@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Sergey Shurmin on 4/9/17.
  */
-public interface Join {
+public abstract class Join {
 
     /**
      * Join two lists. Matching by column.
@@ -17,11 +17,16 @@ public interface Join {
      *
      * @return joined table
      */
-    List<String> joinAll(List<String> leftTable, List<String> rightTable,
+    abstract List<String> joinAll(List<String> leftTable, List<String> rightTable,
                  Integer leftColumn, Integer rightCoumn);
 
-    default String getField(String leftRow, int column) {
+    protected final String getField(String leftRow, int column) {
         return leftRow.split(";")[column];
     }
 
+    protected int lastIterationsCount = 0;
+
+    public int getLastIterationsCount() {
+        return lastIterationsCount;
+    }
 }

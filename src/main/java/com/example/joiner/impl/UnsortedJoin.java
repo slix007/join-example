@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by Sergey Shurmin on 4/9/17.
  */
-public class UnsortedJoin implements Join {
+public class UnsortedJoin extends Join {
 
     @Override
     public List<String> joinAll(List<String> leftTable, List<String> rightTable, Integer leftColumn, Integer rightCoumn) {
@@ -26,7 +26,8 @@ public class UnsortedJoin implements Join {
 
             iterations += findAllRowsInUnsorted(result, rightTable, leftRow, leftColumn, rightCoumn);
         }
-        System.out.println("Unsorted iterations count: " + iterations);
+
+        lastIterationsCount = iterations;
 
         return result;
     }

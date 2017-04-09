@@ -21,18 +21,25 @@ public class JoinerExample {
         final List<String> sorted = Files.readAllLines(Paths.get("russian_names_sorted.csv"));
         final List<String> unsorted = Files.readAllLines(Paths.get("russian_names_unsorted.csv"));
 
-        final List<String> unsortedResult = new UnsortedJoin().joinAll(namesForCompare, unsorted, 1, 1);
+        final UnsortedJoin unsortedJoin = new UnsortedJoin();
+        final List<String> unsortedResult = unsortedJoin.joinAll(namesForCompare, unsorted, 1, 1);
         // output columns:
         // ID;Name;GuessPeopleCount;ID;Name;Sex;PeoplesCount;WhenPeoplesCount;Source
         System.out.println("Unsorted results:");
-        System.out.println("Iterations count;ID;Name;GuessPeopleCount;ID;Name;Sex;PeoplesCount;WhenPeoplesCount;Source");
+        System.out.println("FoundOnIteration;ID;Name;GuessPeopleCount;ID;Name;Sex;PeoplesCount;WhenPeoplesCount;Source");
         unsortedResult.forEach(System.out::println);
 
 
-        final List<String> sortedResult = new SortedJoin().joinAll(namesForCompare, sorted, 1, 1);
+        final SortedJoin sortedJoin = new SortedJoin();
+        final List<String> sortedResult = sortedJoin.joinAll(namesForCompare, sorted, 1, 1);
         System.out.println("Sorted results:");
-        System.out.println("Iterations count;ID;Name;GuessPeopleCount;ID;Name;Sex;PeoplesCount;WhenPeoplesCount;Source");
+        System.out.println("FoundOnIteration;ID;Name;GuessPeopleCount;ID;Name;Sex;PeoplesCount;WhenPeoplesCount;Source");
         sortedResult.forEach(System.out::println);
+
+        System.out.println("=============================================");
+        System.out.println("All unsorted iterations count: " + unsortedJoin.getLastIterationsCount());
+        System.out.println("All sorted iterations count: " + sortedJoin.getLastIterationsCount());
+
 
     }
 

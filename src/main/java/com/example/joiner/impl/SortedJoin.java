@@ -9,7 +9,7 @@ import java.util.List;
  *
  * Created by Sergey Shurmin on 4/9/17.
  */
-public class SortedJoin implements Join {
+public class SortedJoin extends Join {
 
     @Override
     public List<String> joinAll(List<String> leftTable, List<String> rightTable, Integer leftColumn, Integer rightCoumn) {
@@ -30,10 +30,9 @@ public class SortedJoin implements Join {
             // All matched tables on rightFile
             iterations += findAllRowsInSorted(result,
                     sortedRightTable, iterations, leftRow, leftColumn, rightCoumn);
-
         }
 
-        System.out.println("Sorted iterations count: " + iterations);
+        lastIterationsCount = iterations;
 
         return result;
     }
