@@ -22,31 +22,6 @@ public class FilesGenerator {
 
     public static void main(String[] args) throws IOException, URISyntaxException {
 
-        List<String> lines = new ArrayList<>();
-
-        final int maximum = 10000;
-
-
-        final List<String> names = Arrays.asList("Сергей", "Иван", "Павел");
-        final List<String> actionList = Arrays.asList("взял", "вернул");
-        final List<String> deviceList = Arrays.asList("iphone5", "iphone6", "iphone5s", "iphone6s",
-                "nexus5", "nexus6", "ipad");
-
-        for (int i = 0; i < 10; i++) {
-
-            final int random = (int) (Math.random() * maximum);
-            final String action = actionList.get((int) (Math.random() * actionList.size()));
-            final String device = deviceList.get((int) (Math.random() * deviceList.size()));
-            final String name = names.get((int) (Math.random() * names.size()));
-
-            lines.add(String.format("%s;%s;%s;%s", random, name, action, device));
-        }
-
-
-        final Path devicesLogPath = Paths.get("devicesLog.csv");
-        Files.write(devicesLogPath, lines, StandardCharsets.UTF_8,
-                StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-
 //        unsortNames();
 
         sortNames();
