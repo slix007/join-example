@@ -13,6 +13,12 @@ import java.util.List;
  */
 public class JoinerExample {
 
+    /**
+     * The main file
+     *
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
 
         //ID;Name;GuessPeopleCount
